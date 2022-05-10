@@ -1,0 +1,1 @@
+[{"title":"Computadora","price":112000,"thumbnail":"/ruta-random","id":1},{"title":"Carpeta","price":1200,"thumbnail":"/ruta-random","id":2},{"title":"Lapicera","price":60,"thumbnail":"/ruta-random","id":3},{"title":"Silla Gamer","price":35000,"thumbnail":"/ruta-random","id":4}]

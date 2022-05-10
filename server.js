@@ -1,38 +1,41 @@
 const Contenedor = require("./desafio")
-const fs = require("fs")
 const express = require("express")
 const app= express()
 
-app.get("/productos", (req, res) => {
-    try{
-        fs.readFile("productos.txt", (error,datos) => {
-            const data = JSON.parse(datos)
+const leerArchivo = new Contenedor("productos.txt")
+
+app.get("/productos", (req, res, next) => {
+    const traerProductos = async () => {
+        try{
+            const data = await leerArchivo.getAll()
             res.send(data)
-        })
-    }catch(error){
-        res.send(error)
-    }
+        }catch(error){
+            throw new Error(error)
+        }
+    };
+    traerProductos()
 })
 
-app.get("/productoRandom", (req,res) => {
-    try{
-        fs.readFile("productos.txt", (error,datos) => {
-            const datosParseado = JSON.parse(datos)
+app.get("/productoRandom", (req,res, next) => {
 
-            const longitud = datosParseado.length;
+    const productoRandom = async () => {
+        try{
+            const data = await leerArchivo.getAll()
+            const longitud = data.length;
             const numeroRandom = (Math.floor(Math.random()*longitud))+1
 
-            for(let i=0; i< datosParseado.length; i++){
-                if(numeroRandom==datosParseado[i].id){
-                    res.send(datosParseado[i])
+            for(let i=0; i< data.length; i++){
+                if(numeroRandom==data[i].id){
+                    res.send(data[i])
                 }
             }
-        })
-    }catch(error){
-        res.send(error)
+        }catch(error){
+            throw new Error(error)
+        }
     }
+    productoRandom()
 })
 
 app.listen(8080, () => {
-    console.log("Escuchando hola hola...")
+    console.log("Escuchando...")
 })
