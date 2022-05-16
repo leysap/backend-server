@@ -1,4 +1,5 @@
-const fs = require("fs")
+const fs = require("fs");
+const { title } = require("process");
 
 const creandoArchivo = async (fileName) => {
     try {
@@ -19,6 +20,7 @@ const creandoArchivo = async (fileName) => {
     }
   };
 
+  
 class Contenedor{
 
     constructor(fileName){
@@ -33,7 +35,7 @@ class Contenedor{
         const contenido = JSON.parse(await fs.promises.readFile(this.fileName))
         let longitud = contenido.length;
         let index = 0
-    
+        
             if (longitud == 0) {
                 index = 1;
               } else {
@@ -102,31 +104,31 @@ class Contenedor{
 
 const ejecutarProductos = async () => {
     const productos = new Contenedor("productos.txt")
-    console.log('CREO MIS OBJETOS CON SUS ID CORRESPONDIENTES: ')
-    console.log(await productos.save({title: "Computadora", price: 112000, thumbnail: "/ruta-random"}))
-    console.log(await productos.save({title: "Carpeta", price: 1200, thumbnail: "/ruta-random"}))
-    console.log(await productos.save({title: "Lapicera", price: 60, thumbnail: "/ruta-random"}))
-    console.log(await productos.save({title: "Silla Gamer", price: 35000, thumbnail: "/ruta-random"}))
+    // console.log('CREO MIS OBJETOS CON SUS ID CORRESPONDIENTES: ')
+    // console.log(await productos.save({title: "Computadora", price: 112000, thumbnail: "/ruta-random"}))
+    // console.log(await productos.save({title: "Carpeta", price: 1200, thumbnail: "/ruta-random"}))
+    // console.log(await productos.save({title: "Lapicera", price: 60, thumbnail: "/ruta-random"}))
+    // console.log(await productos.save({title: "Silla", price: 35000, thumbnail: "/ruta-random"}))
 
-    console.log("TRAIGO TODOS MIS OBJETOS-PRODUCTOS:")
-    const contenido = await productos.getAll()
-    console.log(contenido)
+    // console.log("TRAIGO TODOS MIS OBJETOS-PRODUCTOS:")
+    // const contenido = await productos.getAll()
+    // console.log(contenido)
 
-    console.log("DEVUELVO UN PRODUCTO CON EL ID 3:")
-    const mostrarid = await productos.getById(3)
-    console.log(mostrarid)
+    // console.log("DEVUELVO UN PRODUCTO CON EL ID 3:")
+    // const mostrarid = await productos.getById(3)
+    // console.log(mostrarid)
 
-    // console.log("VOY A ELIMINAR UN OBJETO CON EL ID 2")
-    // await productos.deleteById(2)
+    // // console.log("VOY A ELIMINAR UN OBJETO CON EL ID 2")
+    // // await productos.deleteById(2)
 
-    console.log("DEVUELVO MI ARRAY DE OBJETOS SIN EL PRODUCTO ELIMINADO:")
-    console.log(await productos.getAll())
+    // console.log("DEVUELVO MI ARRAY DE OBJETOS SIN EL PRODUCTO ELIMINADO:")
+    // console.log(await productos.getAll())
     
     // console.log("VACIO EL ARCHIVO")
     // await productos.deleteAll()
 }
 
-ejecutarProductos()
+// ejecutarProductos()
 
 module.exports= Contenedor
 
