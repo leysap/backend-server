@@ -59,7 +59,7 @@ class Contenedor{
         const contenido = await fs.promises.readFile(this.fileName)
         const objeto = JSON.parse(contenido)
 
-        let objetoId = objeto.find((x) => x.id == id);
+        let objetoId = objeto.find((x) => x.id == id) || null;
         
         return objetoId;
         

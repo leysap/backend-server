@@ -27,7 +27,8 @@ route.get("/productos", (req, res, next) => {
 route.get("/productos/:productoId", (req,res) => {
     const idProd = async() => {
         try{
-            const idProducto = req.params.productoId;
+            const idProducto = parseInt(req.params.productoId);
+            if(isNaN(idProducto)) return res.status(400).send({error: 'El parametro no es un numero'});
             const data = await leerArchivo.getAll()
             const productoEncontrado =  data.find(producto => producto.id == idProducto)
             if(!productoEncontrado) res.status(404).send({error:'Producto no encontrado'})
@@ -43,8 +44,6 @@ route.post("/productos",(req,res) => {
     const agregarProducto = async() => {
         try{
             const objetoNuevo = req.body
-            const ruta= req.body.thumbnail
-            console.log(ruta)
             console.log(objetoNuevo)
             const idNuevo = await leerArchivo.save(objetoNuevo)
             res.send({
@@ -61,11 +60,14 @@ route.post("/productos",(req,res) => {
 route.put("/productos/:id", (req,res) => {    
     const actualizarProduct = async() => {
         try{
-            const idProducto = req.params.id -1;
+            const idProducto = parseInt(req.params.id -1);
+            if(isNaN(idProducto)) return res.status(400).send({error: 'El parametro no es un numero'});
             const data = await leerArchivo.getAll()
 
-            const idProd = req.params.id;
+            const idProd = parseInt(req.params.id);
+            if(isNaN(idProd)) return res.status(400).send({error: 'El parametro no es un numero'})
             const objetoEncontrado = await leerArchivo.getById(idProd)
+            if(!objetoEncontrado) return res.status(400).send({error: 'Producto no existente'})
             
             data[idProducto].title = req.body.title
             data[idProducto].price= req.body.price
@@ -90,8 +92,12 @@ route.delete("/productos/:id", (req,res) => {
     const idProd = async() => {
         try{
             const idProducto = parseInt(req.params.id);
-            await leerArchivo.deleteById(idProducto)
+            if(isNaN(idProducto)) return res.status(400).send({error: 'El parametro no es un numero'});
 
+            const data = await leerArchivo.getAll()
+            const productoEncontrado =  data.find(producto => producto.id == idProducto)
+            if(!productoEncontrado) res.status(404).send({error:'Producto no encontrado'})
+            else await leerArchivo.deleteById(idProducto)
             res.json({
                 numeroIdEliminado: idProducto
             })
