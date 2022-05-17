@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req,res) => {
     res.sendFile(__dirname + "/public/index.html")
 })
+app.use("/api", route)
 
 route.get("/productos", (req, res, next) => {
     const traerProductos = async () => {
@@ -128,7 +129,6 @@ route.get("/productoRandom", (req,res, next) => {
     productoRandom()
 })
 
-app.use("/api", route)
 
 app.listen(8080, () => {
     console.log("Escuchando... puerto 8080")
