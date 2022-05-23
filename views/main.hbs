@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center" id="contenedor">
+    <div>
+        <h1>PRODUCTOS</h1><br>
+        {{#if data.length}}
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Thumbnail</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data}}
+                    <tr>
+                        <td>{{this.id}}</td>
+                        <td>{{this.title}}</td>
+                        <td>{{this.price}}</td>
+                        <td>{{this.thumbnail}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+            <a class="btn btn-sm btn-outline-success" role="button" href="/">VOLVER AL FORMULARIO</a>
+        {{else}}
+            <p>NO HAY DATOS CARGADOS</p>
+        {{/if}}
+    </div>
+</div>
+
+
