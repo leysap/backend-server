@@ -35,7 +35,7 @@ app.post("/productos", (req,res) => {
             console.log(objetoNuevo)
             await leerArchivo.save(objetoNuevo)
             const data = await leerArchivo.getAll()
-            res.redirect('/productos')
+            res.redirect('/')
 
         }catch(error){
             throw new Error(error)

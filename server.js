@@ -49,7 +49,7 @@ app.post("/productos",(req,res) => {
             console.log(objetoNuevo)
             await leerArchivo.save(objetoNuevo)
             const data = await leerArchivo.getAll()
-            res.render('main', {data:data})
+            res.redirect("/")
             // res.send({
             //     objetoNuevo,
             //     idNuevo
