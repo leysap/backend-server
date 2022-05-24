@@ -7,3 +7,8 @@
 table{
     margin-bottom: 2em;
 }
+.child{
+    width:400px;
+    background-color: rgb(195, 208, 226);
+    padding: 1em;
+}

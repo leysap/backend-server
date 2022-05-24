@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="d-flex justify-content-center" id="contenedor">
-        <div  >
+        <div  class="child">
             <h1 class="text-center" id="titulo">FORMULARIO</h1>
             <form action="/productos" method="POST" >
                 <label for="formGroupExampleInput" class="form-label"><strong>Title:</strong></label>
@@ -22,8 +22,10 @@
                 <label for="formGroupExampleInput" class="form-label"><strong>Thumbnail:</strong></label>
                 <input type="text" name="thumbnail" placeholder="Ingrese la URL"/><br><br>
                 
-                <button class="btn btn-outline-primary btn-sm" type="submit">AGREGAR PRODUCTO</button> 
-                <a class="btn btn-outline-primary btn-sm" href="/productos" role="button">VER PRODUCTOS</a>
+                <div class="d-flex  justify-content-around" >
+                    <button class="btn btn-outline-primary btn-sm" type="submit">AGREGAR PRODUCTO</button> 
+                    <a class="btn btn-outline-primary btn-sm" href="/productos" role="button">VER PRODUCTOS</a>
+                </div>
             </form>
         </div>
     </div>
