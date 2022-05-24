@@ -1,0 +1,1 @@
+-Para mi proyecto pienso que es mejor utilizar EJS, ya que es muy parecido al HTML, es muy completo, si bien su sintaxis es un poco compleja, por ende requiere de mucha práctica. 

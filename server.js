@@ -61,7 +61,7 @@ app.post("/productos",(req,res) => {
     agregarProducto()
 })
 app.listen(8080, () => {
-    console.log("Escuchando... puerto 8080")
+    console.log("Server listening in port 8080")
 })
 
 // route.get("/productos/:productoId", (req,res) => {
