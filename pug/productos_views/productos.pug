@@ -22,7 +22,8 @@ html
                         td=producto.id
                         td=producto.title
                         td=producto.price
-                        td=producto.thumbnail
+                        td
+                            img(style="width: 50px; height:50px" src=producto.thumbnail)
 
             a(class="btn btn-primary btn-sm" role="button" href='/') VOLVER AL FORMULARIO
         
