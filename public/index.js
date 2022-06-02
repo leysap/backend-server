@@ -27,8 +27,12 @@ const crearEtiquetasProductos =(producto) => {
 }
 
 const agregarProducto= (producto) => {
-    const productoFinal = producto.map(producto => crearEtiquetasProductos(producto)).join("<br>")
-    document.getElementById("contenedorProductos").innerHTML= productoFinal
+    if(producto.length !==0){
+        const productoFinal = producto.map(producto => crearEtiquetasProductos(producto)).join("<br>")
+        document.getElementById("contenedorProductos").innerHTML= productoFinal
+    }else{
+        document.getElementById("contenedorProductos").innerHTML= "<p>NO HAY PRODUCTOS CARGADOS</p>"
+    }
 }
 socket.on("products", (products) => agregarProducto(products))
 
