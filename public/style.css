@@ -1,5 +1,5 @@
 #contenedor{
-    margin-top: 3em;
+    margin-bottom: 1em;
 }
 #titulo{
     margin-bottom: 1em;
@@ -9,6 +9,20 @@ table{
 }
 .child{
     width:500px;
-    background-color: rgb(195, 208, 226);
+    background-color: rgb(222, 227, 233);
     padding: 1em;
+}
+#estilo{
+    color: blue;
+}
+
+#fecha{
+    color: brown;
+}
+#message{
+    font-style: italic;
+    color: green;
+}
+body{
+    margin:5em
 }
