@@ -1,5 +1,5 @@
-const Contenedor = require("./claseProductos")
-const Mensaje = require("./claseMensaje")
+const Contenedor = require("./clases/claseProductos")
+const Mensaje = require("./clases/claseMensaje")
 const express = require("express")
 const {Server: HttpServer}= require("http")
 const {Server: IOServer} = require("socket.io")
